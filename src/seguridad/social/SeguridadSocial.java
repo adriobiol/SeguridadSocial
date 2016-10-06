@@ -50,14 +50,13 @@ public class SeguridadSocial {
     }
 
     public Persona obtenerPersonaPorNumSS(String numseg) {
-        int posicion = 0;
+        int e = 0;
         for (int i = 0; i < personasarray.size(); i++) {
             if (personasarray.get(i).getNumSeguridadSocial().equals(numseg)) {
-                posicion = i;
-                break;
+                e = i;
             }
         }
-        return personasarray.get(posicion);
+        return personasarray.get(e);
     }
 
     public List<Persona> obtenerPersonasRangoSalarial(double min, double max) {
