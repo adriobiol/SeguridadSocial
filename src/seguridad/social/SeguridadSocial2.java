@@ -23,8 +23,8 @@ public class SeguridadSocial2{
     public Persona obtenerPersonaPorDNI(String dni) {
         return personaMapDNI.get(dni);
     }
-    public Persona obtenerPersonaPorNumSS(String numSS) {
-        return personaMapSS.get(numSS);
+    public Persona obtenerPersonaPorNumSS(String numseg) {
+        return personaMapSS.get(numseg);
     }
     public List<Persona> obtenerPersonasRangoSalarial(double min, double max){
         return personaMapSS.values().stream().filter(persona -> persona.getSalario()>=min && persona.getSalario()<=max).collect(Collectors.toList());

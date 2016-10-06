@@ -12,23 +12,21 @@ public class SeguridadSocial {
     public SeguridadSocial() {
         personasList = new ArrayList<>();
     }
-
-    // Debes comprobar que no se introduzcan dos personas con el mismo DNI/Número Seguridad Social
-    public void altaPersona(Persona persona) {
-        if (!personaMapDni.containsKey(persona.getDNI()) && !personaMapNumeroSS.containsKey(persona.getNumSeguridadSocial())){
-            personaMapDni.put(persona.getDNI(), persona);
-            personaMapNumeroSS.put(persona.getNumSeguridadSocial(), persona);
+    public void altaPersona(Persona persona1) {
+        if (!personaMapDni.containsKey(persona1.getDNI()) && !personaMapNumeroSS.containsKey(persona1.getNumSeguridadSocial())){
+            personaMapDni.put(persona1.getDNI(), persona1);
+            personaMapNumeroSS.put(persona1.getNumSeguridadSocial(), persona1);
         }
         
-        boolean exist=false;
+        boolean result=false;
         for (int i=0; i<personasList.size(); i++){
-            if(persona.getDNI().equals(personasList.get(i).getDNI()) || persona.getNumSeguridadSocial().equals(personasList.get(i).getNumSeguridadSocial())){
+            if(persona1.getDNI().equals(personasList.get(i).getDNI()) || persona1.getNumSeguridadSocial().equals(personasList.get(i).getNumSeguridadSocial())){
                 System.out.println("DNI o numero de la seguridad social ya existente");
-                exist=true;
+                result=true;
             }
         }
-        if(exist==false)
-            personasList.add(persona);
+        if(result==false)
+            personasList.add(persona1);
     }
 
     public void bajaPersona(String dni) {
@@ -46,10 +44,10 @@ public class SeguridadSocial {
         return personasList.get(posicion);
     }
 
-    public Persona obtenerPersonaPorNumSS(String numSS) {
+    public Persona obtenerPersonaPorNumSS(String numseg) {
         int posicion=0;
         for (int i=0; i<personasList.size(); i++){
-            if (personasList.get(i).getNumSeguridadSocial().equals(numSS)){
+            if (personasList.get(i).getNumSeguridadSocial().equals(numseg)){
                 posicion=i;
                 break;
             }
